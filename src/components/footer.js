@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Twitter, Instagram, Linkedin, ChevronDown, ChevronUp, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image'; // Add Next.js Image component
 
 const Footer = () => {
   const [openSection, setOpenSection] = useState('');
@@ -59,11 +60,14 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         {/* Logo Section */}
         <div className="flex justify-center ">
-          <Link href="/" className="block">
-            <img 
+          <Link href="/" className="block relative h-20 w-40">
+            <Image 
               src="/logo.png" 
               alt="WeFrameTech Logo" 
-              className="h-20"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-contain"
+              priority
             />
           </Link>
         </div>

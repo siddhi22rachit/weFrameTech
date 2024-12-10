@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaSearch, FaHistory, FaArrowRight } from 'react-icons/fa';
+import Image from 'next/image'; // Add Next.js Image component
 
 const SearchPopup = ({ isOpen, searchQuery, onSearch, onClose, searchBarRef }) => {
   const [recentSearches] = useState([
@@ -96,10 +97,13 @@ const SearchPopup = ({ isOpen, searchQuery, onSearch, onClose, searchBarRef }) =
                   style={{ width: 'calc(33% - 0.5rem)' }}
                 >
                   <div className="relative w-full aspect-square md:h-20">
-                    <img 
+                    <Image 
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover rounded-md"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover rounded-md"
+                      priority={false}
                     />
                   </div>
                   <div className="text-xs text-gray-500 mt-1">{product.category}</div>
