@@ -1,30 +1,33 @@
 import React from 'react';
+import Image from 'next/image';
 import { HeartIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 
 const ProductCard = ({ product }) => {
   return (
     <div className="border rounded-lg p-4 flex flex-col">
-      <div className="relative">
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="w-full object-cover rounded-t-lg"
+      <div className="relative mb-4">
+        <Image 
+          src={product.imageUrl} 
+          alt={product.name}
+          layout="responsive"
+          width={300}
+          height={300}
+          className="rounded-lg object-cover"
         />
-        <button className="absolute top-2 right-2 text-gray-500 hover:text-red-500">
-          <HeartIcon className="h-6 w-6" />
+        <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md">
+          <HeartIcon className="h-6 w-6 text-gray-600 hover:text-red-500" />
         </button>
       </div>
       
-      <h3 className="mt-2 text-sm font-medium">{product.name}</h3>
-      <p className="text-xs text-gray-500 mt-1">{product.description}</p>
+      <div className="flex-grow">
+        <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+        <p className="text-gray-600 mb-4">{product.description}</p>
+      </div>
       
-      <div className="flex items-center justify-between mt-3">
-        <span className="text-lg font-bold">{product.price}€</span>
-        
-        <button 
-          className="flex items-center px-3 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 transition-colors"
-        >
-          <ShoppingCartIcon className="h-4 w-4 mr-2" />
+      <div className="flex justify-between items-center">
+        <span className="text-xl font-bold">{product.price}€</span>
+        <button className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+          <ShoppingCartIcon className="h-5 w-5 mr-2" />
           Ajouter
         </button>
       </div>
