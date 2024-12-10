@@ -2,20 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.product-card {
+  @apply bg-white shadow-md rounded-lg overflow-hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.product-image-wrapper {
+  @apply relative;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.product-image {
+  @apply w-full h-64 object-cover;
+}
+
+.product-info {
+  @apply p-4;
+}
+
+.product-name {
+  @apply text-lg font-bold mb-2;
+}
+
+.product-description {
+  @apply text-gray-600 mb-4;
+}
+
+.product-price {
+  @apply text-gray-800 font-bold;
+}
+
+.add-to-cart {
+  @apply bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2;
+}
+
+.max-w-md{
+  max-width: 38rem;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
